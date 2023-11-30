@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FacultyModelStoreContainer" CdmEntityContainer="FacultyEntities">
+    <EntitySetMapping Name="adminsses">
+      <EntityTypeMapping TypeName="FacultyModel.adminss">
+        <MappingFragment StoreEntitySet="adminss">
+          <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userapps">
+      <EntityTypeMapping TypeName="FacultyModel.userapp">
+        <MappingFragment StoreEntitySet="userapps">
+          <ScalarProperty Name="userapp_username" ColumnName="userapp_username" />
+          <ScalarProperty Name="userapp_password" ColumnName="userapp_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="FacultyModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_ids" ColumnName="user_ids" />
+          <ScalarProperty Name="user_names" ColumnName="user_names" />
+          <ScalarProperty Name="user_add" ColumnName="user_add" />
+          <ScalarProperty Name="user_age" ColumnName="user_age" />
+          <ScalarProperty Name="date_join" ColumnName="date_join" />
+          <ScalarProperty Name="date_description" ColumnName="date_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FacultyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminss">
+    <Key>
+      <PropertyRef Name="admin_username" />
+    </Key>
+    <Property Name="admin_username" Type="varchar" MaxLength="900" Nullable="false" />
+    <Property Name="admin_password" Type="varchar" MaxLength="900" />
+  </EntityType>
+  <EntityType Name="userapps">
+    <Key>
+      <PropertyRef Name="userapp_username" />
+    </Key>
+    <Property Name="userapp_username" Type="varchar" MaxLength="900" Nullable="false" />
+    <Property Name="userapp_password" Type="varchar" MaxLength="900" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_ids" />
+    </Key>
+    <Property Name="user_ids" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_names" Type="varchar" MaxLength="1000" />
+    <Property Name="user_add" Type="varchar" MaxLength="1000" />
+    <Property Name="user_age" Type="int" />
+    <Property Name="date_join" Type="date" />
+    <Property Name="date_description" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityContainer Name="FacultyModelStoreContainer">
+    <EntitySet Name="adminss" EntityType="Self.adminss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userapps" EntityType="Self.userapps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

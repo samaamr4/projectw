@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FacultyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminss">
+          <Key>
+            <PropertyRef Name="admin_username" />
+          </Key>
+          <Property Name="admin_username" Type="varchar" MaxLength="900" Nullable="false" />
+          <Property Name="admin_password" Type="varchar" MaxLength="900" />
+        </EntityType>
+        <EntityType Name="userapps">
+          <Key>
+            <PropertyRef Name="userapp_username" />
+          </Key>
+          <Property Name="userapp_username" Type="varchar" MaxLength="900" Nullable="false" />
+          <Property Name="userapp_password" Type="varchar" MaxLength="900" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_ids" />
+          </Key>
+          <Property Name="user_ids" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_names" Type="varchar" MaxLength="1000" />
+          <Property Name="user_add" Type="varchar" MaxLength="1000" />
+          <Property Name="user_age" Type="int" />
+          <Property Name="date_join" Type="date" />
+          <Property Name="date_description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityContainer Name="FacultyModelStoreContainer">
+          <EntitySet Name="adminss" EntityType="Self.adminss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userapps" EntityType="Self.userapps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FacultyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adminss">
+          <Key>
+            <PropertyRef Name="admin_username" />
+          </Key>
+          <Property Name="admin_username" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admin_password" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="userapp">
+          <Key>
+            <PropertyRef Name="userapp_username" />
+          </Key>
+          <Property Name="userapp_username" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userapp_password" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_ids" />
+          </Key>
+          <Property Name="user_ids" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_names" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="user_add" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="user_age" Type="Int32" />
+          <Property Name="date_join" Type="DateTime" Precision="0" />
+          <Property Name="date_description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="FacultyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminsses" EntityType="Self.adminss" />
+          <EntitySet Name="userapps" EntityType="Self.userapp" />
+          <EntitySet Name="users" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FacultyModelStoreContainer" CdmEntityContainer="FacultyEntities">
+          <EntitySetMapping Name="adminsses">
+            <EntityTypeMapping TypeName="FacultyModel.adminss">
+              <MappingFragment StoreEntitySet="adminss">
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userapps">
+            <EntityTypeMapping TypeName="FacultyModel.userapp">
+              <MappingFragment StoreEntitySet="userapps">
+                <ScalarProperty Name="userapp_username" ColumnName="userapp_username" />
+                <ScalarProperty Name="userapp_password" ColumnName="userapp_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="FacultyModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_ids" ColumnName="user_ids" />
+                <ScalarProperty Name="user_names" ColumnName="user_names" />
+                <ScalarProperty Name="user_add" ColumnName="user_add" />
+                <ScalarProperty Name="user_age" ColumnName="user_age" />
+                <ScalarProperty Name="date_join" ColumnName="date_join" />
+                <ScalarProperty Name="date_description" ColumnName="date_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
